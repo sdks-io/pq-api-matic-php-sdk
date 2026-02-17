@@ -1,5 +1,5 @@
 {
-    "name": "apimatic/pq-api-matic-sdk",
+    "name": "apimatic-pq/pq-api-matic-sdk",
     "description": "SDKs  for PQ Apis",
     "type": "library",
     "keywords": [],
