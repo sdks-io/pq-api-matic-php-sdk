@@ -1,0 +1,181 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ * PayQuickerSDK
+ *
+ * This file was automatically generated for PayQuicker by APIMATIC v3.0 ( https://www.apimatic.io ).
+ */
+
+namespace PayQuickerSDKLib\Models;
+
+use Core\Utils\CoreHelper;
+use Exception;
+use stdClass;
+
+/**
+ * Fee types
+ */
+class Fees
+{
+    public const BANK_TRANSFER_REVERSAL_STOP_NOC = 'BANK_TRANSFER_REVERSAL_STOP_NOC';
+
+    public const PAPER_CHECK_STOP = 'PAPER_CHECK_STOP';
+
+    public const INSTANT_PAYMENT = 'INSTANT_PAYMENT';
+
+    public const ACCOUNT_DIRECT_DEPOSIT = 'ACCOUNT_DIRECT_DEPOSIT';
+
+    public const INBOUND_WIRE = 'INBOUND_WIRE';
+
+    public const PLASTIC_CARD_PURCHASE_DECLINED = 'PLASTIC_CARD_PURCHASE_DECLINED';
+
+    public const ATM_DECLINED = 'ATM_DECLINED';
+
+    public const CLEAR_NEGATIVE_BALANCE = 'CLEAR_NEGATIVE_BALANCE';
+
+    public const PLASTIC_CARD_ISSUANCE = 'PLASTIC_CARD_ISSUANCE';
+
+    public const PLASTIC_CARD_REPLACEMENT_FRAUD = 'PLASTIC_CARD_REPLACEMENT_FRAUD';
+
+    public const PLASTIC_CARD_REPLACEMENT_LOST_OR_STOLEN = 'PLASTIC_CARD_REPLACEMENT_LOST_OR_STOLEN';
+
+    public const PLASTIC_CARD_REPLACEMENT_EXPIRED = 'PLASTIC_CARD_REPLACEMENT_EXPIRED';
+
+    public const BANK_TRANSFER_CURRENCY_CONVERSION = 'BANK_TRANSFER_CURRENCY_CONVERSION';
+
+    public const PAPER_CHECK_ISSUANCE_CURRENCY_CONVERSION = 'PAPER_CHECK_ISSUANCE_CURRENCY_CONVERSION';
+
+    public const PLASTIC_CARD_PIN_PURCHASE = 'PLASTIC_CARD_PIN_PURCHASE';
+
+    public const FOREIGN_EXCHANGE_CONVERSION = 'FOREIGN_EXCHANGE_CONVERSION';
+
+    public const ATM_CASH_WITHDRAWAL_REMOTE_CURRENCY_FOREIGN_EXCHANGE =
+        'ATM_CASH_WITHDRAWAL_REMOTE_CURRENCY_FOREIGN_EXCHANGE';
+
+    public const PAPER_STATEMENT = 'PAPER_STATEMENT';
+
+    public const BANK_TRANSFER = 'BANK_TRANSFER';
+
+    public const PAPER_CHECK_ISSUANCE = 'PAPER_CHECK_ISSUANCE';
+
+    public const ACCOUNT_ENROLLMENT = 'ACCOUNT_ENROLLMENT';
+
+    public const MONTHLY_MAINTENANCE_INACTIVE_ACCOUNT = 'MONTHLY_MAINTENANCE_INACTIVE_ACCOUNT';
+
+    public const MONTHLY_MAINTENANCE_ACTIVE_ACCOUNT = 'MONTHLY_MAINTENANCE_ACTIVE_ACCOUNT';
+
+    public const ACCOUNT_CLOSURE = 'ACCOUNT_CLOSURE';
+
+    public const PLASTIC_CARD_PURCHASE_OUTSIDE_USA = 'PLASTIC_CARD_PURCHASE_OUTSIDE_USA';
+
+    public const EXTERNAL_INITIATED_BANK_TRANSFER = 'EXTERNAL_INITIATED_BANK_TRANSFER';
+
+    public const CO_BRANDED_ACCOUNT_PROCESSING_ORDER_FEE = 'CO_BRANDED_ACCOUNT_PROCESSING_ORDER_FEE';
+
+    public const ATM_CASH_WITHDRAWAL_FEE_LOCAL_CURRENCY = 'ATM_CASH_WITHDRAWAL_FEE_LOCAL_CURRENCY';
+
+    public const ATM_CASH_WITHDRAWAL_FEE_OUTSIDE_CURRENCY = 'ATM_CASH_WITHDRAWAL_FEE_OUTSIDE_CURRENCY';
+
+    public const ATM_BALANCE_INQUIRY_FEE = 'ATM_BALANCE_INQUIRY_FEE';
+
+    public const BANK_TELLER_CASH_WITHDRAWAL_FEE = 'BANK_TELLER_CASH_WITHDRAWAL_FEE';
+
+    public const BANK_TELLER_CASH_WITHDRAWAL_DECLINE_FEE = 'BANK_TELLER_CASH_WITHDRAWAL_DECLINE_FEE';
+
+    public const COMPANY_BULK_MONTHLY_FEE = 'COMPANY_BULK_MONTHLY_FEE';
+
+    public const PAYMENT_ESCHEATMENT_FEE = 'PAYMENT_ESCHEATMENT_FEE';
+
+    public const SPENDBACK_PROCESSING_FEE = 'SPENDBACK_PROCESSING_FEE';
+
+    public const VIRTUAL_PLASTIC_CARD_REPLACEMENT_FRAUD = 'VIRTUAL_PLASTIC_CARD_REPLACEMENT_FRAUD';
+
+    public const VIRTUAL_PLASTIC_CARD_REPLACEMENT_LOST_OR_STOLEN = 'VIRTUAL_PLASTIC_CARD_REPLACEMENT_LOST_OR_STOLEN';
+
+    public const VIRTUAL_PLASTIC_CARD_REPLACEMENT_EXPIRED = 'VIRTUAL_PLASTIC_CARD_REPLACEMENT_EXPIRED';
+
+    public const REVERSE_FEE = 'REVERSE_FEE';
+
+    public const LOAD_SERVICE_FEE = 'LOAD_SERVICE_FEE';
+
+    public const PAYMENT_SUBSCRIPTION_FEE = 'PAYMENT_SUBSCRIPTION_FEE';
+
+    public const AUTO_ACH_FEE = 'AUTO_ACH_FEE';
+
+    public const UNDEFINED = 'UNDEFINED';
+
+    public const BULK_MONTHLY_FEE = 'BULK_MONTHLY_FEE';
+
+    public const VIRTUAL_PLASTIC_CARD_ISSUANCE = 'VIRTUAL_PLASTIC_CARD_ISSUANCE';
+
+    public const ELECTRONIC_WALLET_TRANSFER = 'ELECTRONIC_WALLET_TRANSFER';
+
+    private const _ALL_VALUES = [
+        self::BANK_TRANSFER_REVERSAL_STOP_NOC,
+        self::PAPER_CHECK_STOP,
+        self::INSTANT_PAYMENT,
+        self::ACCOUNT_DIRECT_DEPOSIT,
+        self::INBOUND_WIRE,
+        self::PLASTIC_CARD_PURCHASE_DECLINED,
+        self::ATM_DECLINED,
+        self::CLEAR_NEGATIVE_BALANCE,
+        self::PLASTIC_CARD_ISSUANCE,
+        self::PLASTIC_CARD_REPLACEMENT_FRAUD,
+        self::PLASTIC_CARD_REPLACEMENT_LOST_OR_STOLEN,
+        self::PLASTIC_CARD_REPLACEMENT_EXPIRED,
+        self::BANK_TRANSFER_CURRENCY_CONVERSION,
+        self::PAPER_CHECK_ISSUANCE_CURRENCY_CONVERSION,
+        self::PLASTIC_CARD_PIN_PURCHASE,
+        self::FOREIGN_EXCHANGE_CONVERSION,
+        self::ATM_CASH_WITHDRAWAL_REMOTE_CURRENCY_FOREIGN_EXCHANGE,
+        self::PAPER_STATEMENT,
+        self::BANK_TRANSFER,
+        self::PAPER_CHECK_ISSUANCE,
+        self::ACCOUNT_ENROLLMENT,
+        self::MONTHLY_MAINTENANCE_INACTIVE_ACCOUNT,
+        self::MONTHLY_MAINTENANCE_ACTIVE_ACCOUNT,
+        self::ACCOUNT_CLOSURE,
+        self::PLASTIC_CARD_PURCHASE_OUTSIDE_USA,
+        self::EXTERNAL_INITIATED_BANK_TRANSFER,
+        self::CO_BRANDED_ACCOUNT_PROCESSING_ORDER_FEE,
+        self::ATM_CASH_WITHDRAWAL_FEE_LOCAL_CURRENCY,
+        self::ATM_CASH_WITHDRAWAL_FEE_OUTSIDE_CURRENCY,
+        self::ATM_BALANCE_INQUIRY_FEE,
+        self::BANK_TELLER_CASH_WITHDRAWAL_FEE,
+        self::BANK_TELLER_CASH_WITHDRAWAL_DECLINE_FEE,
+        self::COMPANY_BULK_MONTHLY_FEE,
+        self::PAYMENT_ESCHEATMENT_FEE,
+        self::SPENDBACK_PROCESSING_FEE,
+        self::VIRTUAL_PLASTIC_CARD_REPLACEMENT_FRAUD,
+        self::VIRTUAL_PLASTIC_CARD_REPLACEMENT_LOST_OR_STOLEN,
+        self::VIRTUAL_PLASTIC_CARD_REPLACEMENT_EXPIRED,
+        self::REVERSE_FEE,
+        self::LOAD_SERVICE_FEE,
+        self::PAYMENT_SUBSCRIPTION_FEE,
+        self::AUTO_ACH_FEE,
+        self::UNDEFINED,
+        self::BULK_MONTHLY_FEE,
+        self::VIRTUAL_PLASTIC_CARD_ISSUANCE,
+        self::ELECTRONIC_WALLET_TRANSFER
+    ];
+
+    /**
+     * Ensures that all the given values are present in this Enum.
+     *
+     * @param array|stdClass|null|string $value Value or a list/map of values to be checked
+     *
+     * @return array|null|string Input value(s), if all are a part of this Enum
+     *
+     * @throws Exception Throws exception if any given value is not in this Enum
+     */
+    public static function checkValue($value)
+    {
+        $value = json_decode(json_encode($value), true); // converts stdClass into array
+        if (CoreHelper::checkValueOrValuesInList($value, self::_ALL_VALUES)) {
+            return $value;
+        }
+        throw new Exception("$value is invalid for Fees.");
+    }
+}

@@ -1,0 +1,130 @@
+
+# OAuth 2 Client Credentials Grant
+
+
+
+Documentation for accessing and setting credentials for server.
+
+## Auth Credentials
+
+| Name | Type | Description | Setter | Getter |
+|  --- | --- | --- | --- | --- |
+| OAuthClientId | `string` | OAuth 2 Client ID | `oAuthClientId` | `getOAuthClientId()` |
+| OAuthClientSecret | `string` | OAuth 2 Client Secret | `oAuthClientSecret` | `getOAuthClientSecret()` |
+| OAuthToken | `OAuthToken\|null` | Object for storing information about the OAuth token | `oAuthToken` | `getOAuthToken()` |
+| OAuthScopes | `string[]\|null` | List of scopes that apply to the OAuth token | `oAuthScopes` | `getOAuthScopes()` |
+| OAuthClockSkew | `int` | Clock skew time in seconds applied while checking the OAuth Token expiry. | `oAuthClockSkew` | - |
+| OAuthTokenProvider | `callable(OAuthToken, ServerManager): OAuthToken` | Registers a callback for oAuth Token Provider used for automatic token fetching/refreshing. | `oAuthTokenProvider` | - |
+| OAuthOnTokenUpdate | `callable(OAuthToken): void` | Registers a callback for token update event. | `oAuthOnTokenUpdate` | - |
+
+
+
+**Note:** Auth credentials can be set using `ServerCredentialsBuilder::init()` in `serverCredentials` method in the client builder and accessed through `getServerCredentials` method in the client instance.
+
+## Usage Example
+
+### Client Initialization
+
+You must initialize the client with *OAuth 2.0 Client Credentials Grant* credentials as shown in the following code snippet. This will fetch the OAuth token automatically when any of the endpoints, requiring *OAuth 2.0 Client Credentials Grant* authentication, are called.
+
+```php
+use PayQuickerSDKLib\Authentication\ServerCredentialsBuilder;
+use PayQuickerSDKLib\Models\OAuthScopeServer;
+use PayQuickerSDKLib\PayQuickerSDKClientBuilder;
+
+$client = PayQuickerSDKClientBuilder::init()
+    ->serverCredentials(
+        ServerCredentialsBuilder::init(
+            'OAuthClientId',
+            'OAuthClientSecret'
+        )
+            ->oAuthScopes(
+                [
+                    OAuthScopeServer::READONLY,
+                    OAuthScopeServer::MODIFY
+                ]
+            )
+    )
+    ->build();
+```
+
+
+
+Your application can also manually provide an OAuthToken using the setter `oAuthToken` in `ServerCredentialsBuilder` object. This function takes in an instance of OAuthToken containing information for authorizing client requests and refreshing the token itself.
+
+You must have initialized the client with scopes for which you need permission to access.
+
+### Scopes
+
+Scopes enable your application to only request access to the resources it needs while enabling users to control the amount of access they grant to your application. Available scopes are defined in the [`OAuthScopeServer`](../../doc/models/o-auth-scope-server.md) enumeration.
+
+| Scope Name | Description |
+|  --- | --- |
+| `READONLY` | readonly scope |
+| `MODIFY` | modify scope |
+
+### Adding OAuth Token Update Callback
+
+Whenever the OAuth Token gets updated, the provided callback implementation will be executed. For instance, you may use it to store your access token whenever it gets updated.
+
+```php
+use PayQuickerSDKLib\Authentication\ServerCredentialsBuilder;
+use PayQuickerSDKLib\Models\OAuthScopeServer;
+use PayQuickerSDKLib\PayQuickerSDKClientBuilder;
+
+$client = PayQuickerSDKClientBuilder::init()
+    ->serverCredentials(
+        ServerCredentialsBuilder::init(
+            'OAuthClientId',
+            'OAuthClientSecret'
+        )
+            ->oAuthScopes(
+                [
+                    OAuthScopeServer::READONLY,
+                    OAuthScopeServer::MODIFY
+                ]
+            )
+            ->oAuthOnTokenUpdate(
+                function (OAuthToken $oAuthToken): void {
+                    // Add the callback handler to perform operations like save to DB or file etc.
+                    // It will be triggered whenever the token gets updated.
+                    $this->saveTokenToDatabase($oAuthToken);
+                }
+            )
+    )
+    ->build();
+```
+
+### Adding Custom OAuth Token Provider
+
+To authorize a client using a stored access token, set up the `oAuthTokenProvider` in `ServerCredentialsBuilder` along with the other auth parameters before creating the client:
+
+```php
+use PayQuickerSDKLib\Authentication\ServerCredentialsBuilder;
+use PayQuickerSDKLib\Models\OAuthScopeServer;
+use PayQuickerSDKLib\PayQuickerSDKClientBuilder;
+
+$client = PayQuickerSDKClientBuilder::init()
+    ->serverCredentials(
+        ServerCredentialsBuilder::init(
+            'OAuthClientId',
+            'OAuthClientSecret'
+        )
+            ->oAuthScopes(
+                [
+                    OAuthScopeServer::READONLY,
+                    OAuthScopeServer::MODIFY
+                ]
+            )
+            ->oAuthTokenProvider(
+                function (?OAuthToken $lastOAuthToken, ServerManager $authManager): OAuthToken {
+                    // Add the callback handler to provide a new OAuth token.
+                    // It will be triggered whenever the lastOAuthToken is null or expired.
+                    return $this->loadTokenFromDatabase() ?? $authManager->fetchToken();
+                }
+            )
+    )
+    ->build();
+```
+
+
