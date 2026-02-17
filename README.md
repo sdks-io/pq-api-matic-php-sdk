@@ -14,23 +14,23 @@ PayQuicker provides a RESTful API that allows authorized clients to send and rec
 Run the following command to install the package and automatically add the dependency to your composer.json file:
 
 ```bash
-composer require "apimatic-pq/pq-api-matic-sdk:1.0.2"
+composer require "apimatic-pq/pq-api-matic-sdk:1.0.3"
 ```
 
 Or add it to the composer.json file manually as given below:
 
 ```json
 "require": {
-    "apimatic-pq/pq-api-matic-sdk": "1.0.2"
+    "apimatic-pq/pq-api-matic-sdk": "1.0.3"
 }
 ```
 
 You can also view the package at:
-https://packagist.org/packages/apimatic-pq/pq-api-matic-sdk#1.0.2
+https://packagist.org/packages/apimatic-pq/pq-api-matic-sdk#1.0.3
 
 ## Initialize the API Client
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/client.md)
+**_Note:_** Documentation for the client can be found [here.](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/client.md)
 
 The following parameters are configurable for the API Client:
 
@@ -39,7 +39,7 @@ The following parameters are configurable for the API Client:
 | xMyPayQuickerVersion | `string` | Date-based API Version specified in the header *required* on all calls.<br>*Default*: `'2026.02.01'` |
 | sandboxInstance | `string(SandboxInstance)` | Sandbox Environments<br>*Default*: `SandboxInstance::SANDBOX` |
 | uatInstance | `string(UatInstance)` | UAT Environments<br>*Default*: `UatInstance::UAT1` |
-| environment | [`Environment`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/README.md#environments) | The API environment. <br> **Default: `Environment.SANDBOX`** |
+| environment | [`Environment`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/README.md#environments) | The API environment. <br> **Default: `Environment.SANDBOX`** |
 | timeout | `int` | Timeout for API calls in seconds.<br>*Default*: `0` |
 | enableRetries | `bool` | Whether to enable retries and backoff feature.<br>*Default*: `false` |
 | numberOfRetries | `int` | The number of retries to make.<br>*Default*: `0` |
@@ -49,10 +49,10 @@ The following parameters are configurable for the API Client:
 | retryOnTimeout | `bool` | Whether to retry on request timeout.<br>*Default*: `true` |
 | httpStatusCodesToRetry | `array` | Http status codes to retry against.<br>*Default*: `408, 413, 429, 500, 502, 503, 504, 521, 522, 524` |
 | httpMethodsToRetry | `array` | Http methods to retry against.<br>*Default*: `'GET', 'PUT'` |
-| loggingConfiguration | [`LoggingConfigurationBuilder`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/logging-configuration-builder.md) | Represents the logging configurations for API calls |
-| proxyConfiguration | [`ProxyConfigurationBuilder`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/proxy-configuration-builder.md) | Represents the proxy configurations for API calls |
-| serverCredentials | [`ServerCredentials`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/auth/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
-| clientsideCredentials | [`ClientsideCredentials`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/auth/oauth-2-bearer-token.md) | The Credentials Setter for OAuth 2 Bearer token |
+| loggingConfiguration | [`LoggingConfigurationBuilder`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/logging-configuration-builder.md) | Represents the logging configurations for API calls |
+| proxyConfiguration | [`ProxyConfigurationBuilder`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/proxy-configuration-builder.md) | Represents the proxy configurations for API calls |
+| serverCredentials | [`ServerCredentials`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/auth/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
+| clientsideCredentials | [`ClientsideCredentials`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/auth/oauth-2-bearer-token.md) | The Credentials Setter for OAuth 2 Bearer token |
 
 The API client can be initialized as follows:
 
@@ -117,48 +117,48 @@ The SDK can be configured to use a different environment for making API calls. A
 
 This API uses the following authentication schemes.
 
-* [`server (OAuth 2 Client Credentials Grant)`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/auth/oauth-2-client-credentials-grant.md)
-* [`clientside (OAuth 2 Bearer token)`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/auth/oauth-2-bearer-token.md)
+* [`server (OAuth 2 Client Credentials Grant)`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/auth/oauth-2-client-credentials-grant.md)
+* [`clientside (OAuth 2 Bearer token)`](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/auth/oauth-2-bearer-token.md)
 
 ## List of APIs
 
-* [Agreements](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/agreements.md)
-* [Balances](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/balances.md)
-* [Bank Accounts](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/bank-accounts.md)
-* [Client Side](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/client-side.md)
-* [Compliance](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/compliance.md)
-* [Documents](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/documents.md)
-* [Electronic Wallets](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/electronic-wallets.md)
-* [Events](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/events.md)
-* [Invitations](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/invitations.md)
-* [Jobs](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/jobs.md)
-* [Payments](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/payments.md)
-* [Prepaid Cards](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/prepaid-cards.md)
-* [Program](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/program.md)
-* [Receipts](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/receipts.md)
-* [Spendback](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/spendback.md)
-* [Spendback Refunds](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/spendback-refunds.md)
-* [Statements](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/statements.md)
-* [Transfers](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/transfers.md)
-* [Users](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/users.md)
-* [Webhooks](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/controllers/webhooks.md)
+* [Agreements](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/agreements.md)
+* [Balances](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/balances.md)
+* [Bank Accounts](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/bank-accounts.md)
+* [Client Side](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/client-side.md)
+* [Compliance](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/compliance.md)
+* [Documents](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/documents.md)
+* [Electronic Wallets](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/electronic-wallets.md)
+* [Events](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/events.md)
+* [Invitations](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/invitations.md)
+* [Jobs](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/jobs.md)
+* [Payments](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/payments.md)
+* [Prepaid Cards](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/prepaid-cards.md)
+* [Program](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/program.md)
+* [Receipts](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/receipts.md)
+* [Spendback](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/spendback.md)
+* [Spendback Refunds](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/spendback-refunds.md)
+* [Statements](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/statements.md)
+* [Transfers](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/transfers.md)
+* [Users](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/users.md)
+* [Webhooks](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/controllers/webhooks.md)
 
 ## SDK Infrastructure
 
 ### Configuration
 
-* [ProxyConfigurationBuilder](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/proxy-configuration-builder.md)
-* [LoggingConfigurationBuilder](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/logging-configuration-builder.md)
-* [RequestLoggingConfigurationBuilder](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/request-logging-configuration-builder.md)
-* [ResponseLoggingConfigurationBuilder](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/response-logging-configuration-builder.md)
+* [ProxyConfigurationBuilder](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/proxy-configuration-builder.md)
+* [LoggingConfigurationBuilder](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/logging-configuration-builder.md)
+* [RequestLoggingConfigurationBuilder](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/request-logging-configuration-builder.md)
+* [ResponseLoggingConfigurationBuilder](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/response-logging-configuration-builder.md)
 
 ### HTTP
 
-* [HttpRequest](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/http-request.md)
-* [HttpResponse](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/http-response.md)
+* [HttpRequest](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/http-request.md)
+* [HttpResponse](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/http-response.md)
 
 ### Utilities
 
-* [FileWrapper](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/file-wrapper.md)
-* [ApiException](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.2/doc/api-exception.md)
+* [FileWrapper](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/file-wrapper.md)
+* [ApiException](https://www.github.com/sdks-io/pq-api-matic-php-sdk/tree/1.0.3/doc/api-exception.md)
 
